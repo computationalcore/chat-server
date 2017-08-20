@@ -1,0 +1,51 @@
+{
+  "name": "chat-server",
+  "description": "A realtime chat server app built with Feathers",
+  "version": "0.1.0",
+  "homepage": "",
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "license": "MIT",
+  "repository": {},
+  "author": {
+    "name": "Vin Busquet",
+    "email": "computationalcore@gmail.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "test": "npm run jshint && npm run mocha",
+    "jshint": "jshint src/. test/. --config",
+    "start": "node src/",
+    "mocha": "mocha test/ --recursive"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "compression": "1.6.2",
+    "cors": "2.8.1",
+    "feathers": "2.0.3",
+    "feathers-configuration": "0.2.3",
+    "feathers-errors": "2.5.0",
+    "feathers-hooks": "1.7.1",
+    "feathers-rest": "1.6.0",
+    "feathers-socketio": "1.4.2",
+    "helmet": "^3.9.0",
+    "serve-favicon": "2.3.2",
+    "winston": "2.3.0"
+  },
+  "devDependencies": {
+    "jshint": "2.9.4",
+    "mocha": "3.2.0",
+    "request": "2.79.0"
+  }
+}
