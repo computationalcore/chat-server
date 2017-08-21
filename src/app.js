@@ -14,9 +14,13 @@ const socketio = require('feathers-socketio');
 const middleware = require('./middleware');
 const services = require('./services');
 
+const authentication = require('./authentication');
+
 const app = feathers();
 
 app.configure(configuration(path.join(__dirname, '..')));
+
+app.configure(authentication);
 
 app.use(compress())
   .options('*', cors())

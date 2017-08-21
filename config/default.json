@@ -5,5 +5,70 @@
   "paginate": {
     "default": 10,
     "max": 50
-  }
+  },
+  "authentication": {
+    "secret": "6b1aff80323f3d5cd5880c7ebfba9c9aa59e41fedc1ac735764cc7ee1fae4d2fd7de13f9a024e8c2d7ddd2728b61efa65716fbce07852c4f25222f73876c6e69b77f6b5d43cbbcf84a12d5d30f72570497f3f37b0af9e88c779777c1aa57a3becaa297ddf73884913e66850a8b32b92fc7fd62b7ae13e7ccde36f186edd14fa6090c05a3154a51b58320df7701ed3ce75290ba7e02612648d3a1c2d2e309a283f83ab354e1b9ffac40cc2bd1fa74eb75e0c3c021d12d4ffd863d5a85446c5b32cab05cc955165d39b6dfae5748005682b445c6551e9345c1d6ae21a7b1af2c3c61c13a9ec7c6bfb3ff36f078e38bfd44dd0125faee31862bb5e4c78531dfa4b6",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "successRedirect": "/",
+      "scope": [
+        "public_profile",
+        "email"
+      ],
+      "profileFields": [
+        "id",
+        "displayName",
+        "first_name",
+        "last_name",
+        "email",
+        "gender",
+        "profileUrl",
+        "birthday",
+        "picture",
+        "permissions"
+      ]
+    },
+    "github": {
+      "clientID": "your github client id",
+      "clientSecret": "your github client secret",
+      "successRedirect": "/"
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  },
+  "nedb": "../data"
 }
