@@ -1,6 +1,17 @@
 const { authenticate } = require('feathers-authentication').hooks;
-
+const { populate } = require('feathers-hooks-common');
 const processMessage = require('../../hooks/process-message');
+
+// Include the user property using the userId, retrieving it from the users service to all messages
+const messageSchema = {
+  include: [{
+    service: 'users',
+    nameAs: 'user',
+    parentField: 'userId',
+    childField: '_id'
+  }]
+};
+
 
 module.exports = {
   before: {
@@ -14,7 +25,7 @@ module.exports = {
   },
 
   after: {
-    all: [],
+    all: [ populate({ schema: messageSchema }) ],
     find: [],
     get: [],
     create: [],
