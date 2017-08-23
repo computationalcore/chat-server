@@ -11,12 +11,14 @@ const restrict = [
   })
 ];
 
+const gravatar = require('../../hooks/gravatar');
+
 module.exports = {
   before: {
     all: [],
     find: [ authenticate('jwt') ],
     get: [ ...restrict ],
-    create: [ hashPassword() ],
+    create: [hashPassword(), gravatar()],
     update: [ ...restrict, hashPassword() ],
     patch: [ ...restrict, hashPassword() ],
     remove: [ ...restrict ]

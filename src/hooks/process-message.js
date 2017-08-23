@@ -1,6 +1,3 @@
-// Use .
-// For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
-
 /**
  * @description This hook sanitize the sanitize HTML input(truncate the messages text property to 400 characters and do
  * some basic HTML escaping), add the user that sent it and include the date the message has been created before saving
